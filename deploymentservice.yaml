@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nest-app-backend-container
-        image: 192.168.2.164:5000/torus9x-nest-app:docker_tag
+        image: durai54/torus9x-nest-app:docker_tag
         ports:
         - containerPort: 3002
         env:
