@@ -29,7 +29,10 @@ spec:
           value: "http://l92.168.2.178:4318"
         - name: OTLP_SERVICENAME
           value: "nestjs-app"
-
+        - name: OTEL_TRACES_EXPORTER
+          value: "otlp"
+       - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+         value: "true"
 ---
 apiVersion: v1
 kind: Service
@@ -38,7 +41,7 @@ metadata:
   labels:
     app: nestjs-app
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
   - port: 443
     targetPort: 3002
