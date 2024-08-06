@@ -26,13 +26,13 @@ spec:
         - name: redis_port
           value: "8085"
         - name: OTEL_EXPORTER_OTLP_ENDPOINT
-          value: "http://l92.168.2.178:4318"
+          value: "http://192.168.2.178:4318"  # Corrected IP address format
         - name: OTLP_SERVICENAME
           value: "nestjs-app"
         - name: OTEL_TRACES_EXPORTER
           value: "otlp"
-       - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
-         value: "true"
+        - name: OTEL_EXPORTER_OTLP_TRACES_INSECURE
+          value: "true"
 ---
 apiVersion: v1
 kind: Service
@@ -44,6 +44,6 @@ spec:
   type: ClusterIP
   ports:
   - port: 443
-    targetPort: 3002
+    targetPort: 3002  # Ensure this matches the containerPort
   selector:
     app: nestjs-app
